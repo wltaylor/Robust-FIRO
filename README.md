@@ -1,7 +1,8 @@
 # Robust-FIRO
 Files supporting the paper "Comparing the robustness of forecast-informed reservoir operating policies under forecast uncertainty and hydrologic extremes". The experiment simulates three FIRO models against scaled versions of four floods (1986, 1997, 2006, 2017) at Oroville reservoir, California, analyzing how each model performs by measuring the volume of flood pool required to safely manage the event.
 
-### Requirements: numpy, pandas, xarray, scipy, cvxpy
+### Requirements: 
+numpy, pandas, xarray, scipy, cvxpy
 
 # Steps:
 ### Load Required Data:
@@ -30,5 +31,13 @@ Files supporting the paper "Comparing the robustness of forecast-informed reserv
 - Next are the synthetic-trained EFO policies. For both the fully-trained and held out case, the median synthetic policy is simulated with the HEFS forecast. Then, the script loops through all 100 synthetic ensembles and tests their optimized policy against a randomly selected synthetic ensemble, ensuring that it is not the same synthetic ensemble that the policy was trained on (this is accomplished with the 'choose_excluding' function defined at the beginning of the script). The resulting storage and release values are saved in the format: 'results/storage_estimates_{year}/res_df_syn_train_{event}_weight{weight}.csv' and 'results/storage_estimates_{year}/res_df_syn_train_no1997_{event}_weight{weight}.csv'.
 - Finally, the Cumulative Method is simulated in the same manner, first testing the model against HEFS and then looping through the 100 synthetic ensembles. The results are saved in the format: 'results/storage_estimates_{year}/res_df_cumulative_{event}.csv'. Since the Cumulative Method is not affected by a weighting value it does not have a weight label in the results name.
 
-### Create figures:
-- 
+### Create Figures:
+- Figure_1.py: shapefiles are required to create subpanel (a).
+- Figure_2.py
+- Figure_3.py: uses a a simulation result to plot a methods figure
+- visualize_required_storage_{year}.py: these four scripts create the required flood pool figures. You can edit the weight scalar value at the top to change which figure is created. Figure 4 is generated with the 1997 version, Supplemental Figures 1-19 are generated with weight combinations of the other scripts.
+- Figure_5.py: primary function is to create Fig 5 (required flood pool by weight, model, event) but also creates the same figure for drawdown, and a Pareto front figure which combines the flood pool and drawdown results.
+- Figure_6.py: different event/weight combinations can be used to visualize other results. This script also generates the barplot showing the release coefficient of variation for each model in Supplemental Figure 21.
+- Figure_7.py: primary function is to create the forecast bias figure, but also generates supplemental figures 22 and 23.
+- Figure_8.py: primary function is to create the EFO policies figure, but also generates supplemental figures 20 and 25.
+
