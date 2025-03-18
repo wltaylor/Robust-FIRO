@@ -6,7 +6,8 @@ numpy, pandas, xarray, scipy, cvxpy
 
 # Steps:
 ### Load Required Data:
-- Forecast arrays need to be loaded into the data folder. There should be a file for HEFS (Qf-hefs.nc), HEFS 1986 (Qf_hefs86.nc), Perfect forecasts (perfect_forecast.nc) and the 100 synthetic forecasts (Qf-syn_pcnt=0.99_ORDC1_5fold-test.nc). Note to Jon: my Box account will cease to exist after I graduate, do you want to host the data? I could also upload it to Zenodo.
+- All files are available in the following Zenodo archive: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15041287.svg)](https://doi.org/10.5281/zenodo.15041287)
+- Once downloaded, the forecast arrays need to be loaded into the data folder. There should be a file for HEFS (Qf-hefs.nc), HEFS 1986 (Qf_hefs86.nc), Perfect forecasts (perfect_forecast.nc) and the 100 synthetic forecasts (Qf-syn_pcnt=0.99_ORDC1_5fold-test.nc).
 - Historical medians .csv file is already in the data folder. This is used for the Baseline MPC policy.
 - Observed flows .csv file is already in the data folder. All models use this file.
 
